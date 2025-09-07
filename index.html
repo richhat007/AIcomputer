@@ -361,395 +361,415 @@
 
     <!-- ===== products-data + logic (embedded) ===== -->
     <script>
-            /* ===== products-data.js (embedded, cleaned) ===== */
-            const products = [
-              {
-                id: 1,
-                name: "Laptop Gaming ASUS ROG Strix G15",
-                brand: "ASUS",
-                price: 1299,
-                image: "Laptop Gaming ASUS ROG Strix G15.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core i7-12700H",
-                  ram: "16GB DDR4",
-                  storage: "512GB NVMe SSD",
-                  gpu: "NVIDIA GeForce RTX 3050",
-                  display: "15.6 inch Full HD IPS (144Hz)",
-                  os: "Windows 11 Home",
-                  warranty: "1 Year",
-                },
-                description:
-                  "ASUS ROG Strix G15 ជាជម្រើសល្អសម្រាប់អ្នកលេងហ្គេម ដែលមាន CPU ជំនាន់ចុងក្រោយ និងកាតក្រាហ្វិកមានថាមពល។",
-              },
-              {
-        id: 2,
-        name: "Dell XPS 13 9340",
-        brand: "Dell",
-        price: 1299, // Starting price in USD
-        image: "delll.jpg",
-        category: "Ultrabook",
-        specs: {
-          cpu: "Intel Core Ultra 7 155H",
-          ram: "16GB LPDDR5X",
-          storage: "512GB SSD",
-          gpu: "Intel Arc Xe-LPG 128EU",
-          display: "13.4\" FHD+ (1920x1200) 120Hz",
-          os: "Windows 11 Pro",
-          warranty: "1 Year",
-          model: "XPS 13 9340"
+      /* ===== products-data.js (embedded, cleaned) ===== */
+      const products = [
+        {
+          id: 1,
+          name: "Laptop Gaming ASUS ROG Strix G15",
+          brand: "ASUS",
+          price: 1299,
+          image: "Laptop Gaming ASUS ROG Strix G15.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i7-12700H",
+            ram: "16GB DDR4",
+            storage: "512GB NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 3050",
+            display: "15.6 inch Full HD IPS (144Hz)",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "ASUS ROG Strix G15 ជាជម្រើសល្អសម្រាប់អ្នកលេងហ្គេម ដែលមាន CPU ជំនាន់ចុងក្រោយ និងកាតក្រាហ្វិកមានថាមពល។",
         },
-        description:
-          "The Dell XPS 13 9340 is a compact and stylish ultrabook designed for professionals and everyday users seeking a balance between performance and portability. Powered by the Intel Core Ultra 7 155H processor and equipped with Intel Arc Xe-LPG graphics, it delivers efficient performance for various tasks. The 13.4-inch FHD+ display with a 120Hz refresh rate provides vibrant visuals, while the 16GB LPDDR5X RAM and 512GB SSD ensure smooth multitasking and ample storage. Running on Windows 11 Pro, it offers a modern and secure computing experience."
-              },
+        {
+          id: 2,
+          name: "Dell XPS 13 9340",
+          brand: "Dell",
+          price: 1299, // Starting price in USD
+          image: "delll.jpg",
+          category: "Ultrabook",
+          specs: {
+            cpu: "Intel Core Ultra 7 155H",
+            ram: "16GB LPDDR5X",
+            storage: "512GB SSD",
+            gpu: "Intel Arc Xe-LPG 128EU",
+            display: '13.4" FHD+ (1920x1200) 120Hz',
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "XPS 13 9340",
+          },
+          description:
+            "The Dell XPS 13 9340 is a compact and stylish ultrabook designed for professionals and everyday users seeking a balance between performance and portability. Powered by the Intel Core Ultra 7 155H processor and equipped with Intel Arc Xe-LPG graphics, it delivers efficient performance for various tasks. The 13.4-inch FHD+ display with a 120Hz refresh rate provides vibrant visuals, while the 16GB LPDDR5X RAM and 512GB SSD ensure smooth multitasking and ample storage. Running on Windows 11 Pro, it offers a modern and secure computing experience.",
+        },
 
-              {
-                id: 3,
-                name: "MacBook Air M2",
-                brand: "Apple",
-                price: 1199,
-                image: "MacBook Air M2.jpg",
-                category: "Laptop",
-                specs: {
-                  cpu: "Apple M2 Chip",
-                  ram: "8GB Unified Memory",
-                  storage: "256GB SSD",
-                  gpu: "Integrated 8-core GPU",
-                  display: "13.6-inch Liquid Retina Display",
-                  os: "macOS",
-                  warranty: "1 Year",
-                },
-                description:
-                  "MacBook Air M2 ផ្តល់ថាមពល និងប្រសិទ្ធភាពក្នុងកញ្ចក់ស្តើង និងស្រាល។ ល្អសម្រាប់ស្នាដៃ និងការច្នៃប្រឌិត។",
-              },
-              {
-                id: 4,
-                name: "HP Pavilion 15 (Ryzen 5)",
-                brand: "HP",
-                price: 750,
-                image: "HP Pavilion 15 (Ryzen 5).jpeg",
-                category: "Laptop",
-                specs: {
-                  cpu: "AMD Ryzen 5 5500U",
-                  ram: "8GB DDR4",
-                  storage: "512GB PCIe NVMe SSD",
-                  gpu: "AMD Radeon Graphics",
-                  display: "15.6 inch Full HD IPS",
-                  os: "Windows 11 Home",
-                  warranty: "1 Year",
-                },
-                description:
-                  "HP Pavilion 15 មានតុល្យភាពល្អរវាងតម្លៃ និងសមត្ថភាព សាកសមសម្រាប់ការងារ និងការកម្សាន្ត។",
-              },
-              {
-                id: 5,
-                name: "Lenovo Legion 5 Pro (Gaming)",
-                brand: "Lenovo",
-                price: 1499,
-                image: "Lenovo Legion 5 Pro (Gaming).png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "AMD Ryzen 7 6800H",
-                  ram: "16GB DDR5",
-                  storage: "1TB NVMe SSD",
-                  gpu: "NVIDIA GeForce RTX 3060",
-                  display: "16 inch QHD IPS (165Hz)",
-                  os: "Windows 11 Home",
-                  warranty: "1 Year",
-                },
-                description:
-                  "Lenovo Legion 5 Pro រចនាសម្រាប់ Gaming បង្ហាញខ្លួនល្អ ជាមួយ Hardware ថាមពលខ្ពស់។",
-              },
-              {
-                id: 6,
-                name: "ASUS ROG Strix G18 2025",
-                brand: "ASUS",
-                price: 3299,
-                image: "ASUS ROG Strix G18 2025.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core Ultra 9 275HX",
-                  ram: "32GB DDR5 5600Mhz",
-                  storage: "2TB PCIe 4.0",
-                  gpu: "NVIDIA RTX 5080 16GB",
-                  display: "18-inch 2K 240Hz",
-                  os: "Windows 11 Home",
-                  warranty: "1 Year",
-                  model: "G815LW-G18",
-                  weight: "3.4 kg",
-                },
-                description:
-                  "ASUS ROG Strix Scar 18 (G815LW-G18) មានសមត្ថភាពខ្ពស់ សម្រាប់ហ្គេម និង Content Creation។",
-              },
-              {
-                id: 7,
-                name: "MSI GL63 15.6 Gaming Laptop",
-                brand: "MSI",
-                price: 1159,
-                image: "MSI GL63 15.6 Gaming Laptop.jpg",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core i7-9750H",
-                  ram: "16GB DDR4",
-                  storage: "512GB SSD",
-                  gpu: "NVIDIA GeForce RTX 2060 6GB",
-                  display: "15.6 inch Full HD (1920x1080)",
-                  os: "Windows 11",
-                  warranty: "1 Year",
-                  vga: "6GB VRAM",
-                  model: "GL63 15.6",
-                },
-                description:
-                  "MSI GL63 15.6 ជា Gaming Laptop សមរម្យសម្រាប់ការចាប់ផ្តើមលេងហ្គេម និងប្រើប្រាស់រួម។",
-              },
-              {
-                id: 8,
-                name: "MSI CYBORG 15",
-                brand: "MSI",
-                price: 649,
-                image: "MIS Cyborg 15.jpg",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core i5-12450H",
-                  ram: "8GB DDR5",
-                  storage: "512GB M.2 G4",
-                  gpu: "NVIDIA GeForce RTX 3500 4GB",
-                  display: "15.6 inch 144Hz",
-                  os: "Windows 11",
-                  warranty: "1 Year",
-                  model: "A12UC-1695KH",
-                },
-                description:
-                  "MSI CYBORG 15 ជា Gaming Laptop សមរម្យសម្រាប់ការចាប់ផ្តើមលេងហ្គេម និងប្រើប្រាស់រួម។",
-              },
-              {
-                id: 9,
-                name: "ASUS ROG Zephyrus G16",
-                brand: "ASUS",
-                price: 4099,
-                image: "rog.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core Ultra 9 285H (16C,16T 5.4GHz)",
-                  ram: "64GB DDR5",
-                  storage: "2TB M.2 G4",
-                  gpu: "NVIDIA GeForce RTX 5090 24GB",
-                  display: "2K 16-inch OLED  240Hz",
-                  os: "Windows 11 Pro",
-                  warranty: "1 Year",
-                  model: "GA6O5CX-QRO71W",
-                },
-                description:
-                  "ASUS ROG Zephyrus G16 GU605 គឺជាកុំព្យូទ័រ Gaming Laptop មានសមត្ថភាពខ្ពស់ សម្រាប់ការលេងហ្គេម និងការងារប្រកបដោយការច្នៃប្រឌិត។",
-              },
-              {
-                id: 10,
-                name: "ASUS ROG Strix SCAR 16 G635LX-RW166W",
-                brand: "ASUS",
-                price: 3299, // Estimated price in USD
-                image: "rogscar.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core Ultra 9 275HX (24 cores, up to 5.4GHz)",
-                  ram: "64GB DDR5 5600MHz",
-                  storage: "2TB PCIe Gen 4.0 SSD",
-                  gpu: "NVIDIA GeForce RTX 5090 Laptop GPU (24GB GDDR7)",
-                  display: "16-inch 2.5K Mini LED 240Hz/3ms, 16:10 aspect ratio",
-                  os: "Windows 11 Pro",
-                  warranty: "1 Year",
-                  model: "G635LX-RW166W",
-                },
-                description:
-                  "The ASUS ROG Strix SCAR 16 G635LX-RW166W is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the Intel Core Ultra 9 275HX processor, 64GB of DDR5 RAM, and the powerful NVIDIA GeForce RTX 5090 GPU with 24GB of GDDR7 memory. The 16-inch 2.5K Mini LED display offers a 240Hz refresh rate and 3ms response time, providing an immersive gaming experience. With a 2TB PCIe Gen 4.0 SSD and Windows 11 Pro, this laptop ensures fast performance and productivity. Its robust cooling system includes an end-to-end vapor chamber, Tri-Fan Technology, and Conductonaut Extreme liquid metal on CPU and GPU, keeping temperatures in check during intense gaming sessions.",
-              },
-              {
-                id: 11,
-                name: "ASUS ROG Zephyrus G14 GA403WW-QS072WS",
-                brand: "ASUS",
-                price: 3199, // Estimated price in USD
-                image: "ASUS ROG Zephyrus G14 GA403WW-QS072WS.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "AMD Ryzen AI 9 HX 370 (12 cores, up to 5.1GHz)",
-                  ram: "64GB LPDDR5X",
-                  storage: "2TB PCIe Gen 4.0 NVMe SSD",
-                  gpu: "NVIDIA GeForce RTX 5080 (16GB GDDR7)",
-                  display: "14-inch 3K (2880x1800) 120Hz OLED",
-                  os: "Windows 11 Pro",
-                  warranty: "2 Years",
-                  model: "GA403WW-QS072WS",
-                },
-                description:
-                  "The ASUS ROG Zephyrus G14 GA403WW-QS072WS is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the AMD Ryzen AI 9 HX 370 processor, 64GB of LPDDR5X RAM, and the powerful NVIDIA GeForce RTX 5080 GPU with 16GB of GDDR7 memory. The 14-inch 3K OLED display offers a 120Hz refresh rate, providing an immersive gaming experience. With a 2TB PCIe Gen 4.0 SSD and Windows 11 Pro, this laptop ensures fast performance and productivity. Its robust cooling system includes an end-to-end vapor chamber, Tri-Fan Technology, and Conductonaut Extreme liquid metal on CPU and GPU, keeping temperatures in check during intense gaming sessions.",
-              },
-              {
-                id: 12,
-                name: "MSI Crosshair A18 HX A8WX",
-                brand: "MSI",
-                price: 1799, // Estimated price in USD
-                image: "MSI Crosshair A18 HX A8WX.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "AMD Ryzen 9 8940HX",
-                  ram: "32GB DDR5-5600",
-                  storage: "1TB PCIe Gen 4.0 NVMe SSD",
-                  gpu: "NVIDIA GeForce RTX 5070 Laptop GPU",
-                  display: "18-inch QHD+ (2560x1600), 240Hz IPS-Level",
-                  os: "Windows 11 Home",
-                  warranty: "2 Years",
-                  model: "A8WX",
-                },
-                description:
-                  "The MSI Crosshair A18 HX A8WX is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the AMD Ryzen 9 8940HX processor, 32GB of DDR5 RAM, and the powerful NVIDIA GeForce RTX 5070 GPU. The 18-inch QHD+ display offers a 240Hz refresh rate, providing an immersive gaming experience. With a 1TB PCIe Gen 4.0 SSD and Windows 11 Home, this laptop ensures fast performance and productivity. Its robust cooling system includes an end-to-end vapor chamber, Tri-Fan Technology, and Conductonaut Extreme liquid metal on CPU and GPU, keeping temperatures in check during intense gaming sessions.",
-              },
-              {
-                id: 13,
-                name: "ASUS TUF Gaming F16 (2024)",
-                brand: "ASUS",
-                price: 1259, // Estimated price in USD
-                image: "ASUS TUF Gaming F16 (2024).png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core i7-13650HX (14 cores, up to 4.9GHz)",
-                  ram: "32GB DDR5-4800MHz",
-                  storage: "1TB PCIe Gen 4.0 SSD",
-                  gpu: "NVIDIA GeForce RTX 5060 Laptop GPU",
-                  display: "16-inch FHD+ (1920x1200) 165Hz IPS-Level",
-                  os: "Windows 11 Home",
-                  warranty: "1 Year",
-                  model: "FX607JV",
-                },
-                description:
-                  "The ASUS TUF Gaming F16 (2024) is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the Intel Core i7-13650HX processor, 32GB of DDR5 RAM, and the powerful NVIDIA GeForce RTX 5060 GPU. The 16-inch FHD+ display offers a 165Hz refresh rate, providing an immersive gaming experience. With a 1TB PCIe Gen 4.0 SSD and Windows 11 Home, this laptop ensures fast performance and productivity. Its robust cooling system includes 84-blade Arc Flow Fans™, 5 heatpipes, dust filters, and 4 exhaust vents, keeping temperatures in check during intense gaming sessions.",
-              },
-              {
-                id: 14,
-                name: "Apple MacBook Air (2025)",
-                brand: "Apple",
-                price: 999, // Starting price in USD
-                image: "Apple_MacBook_Air_2025.jpg",
-                category: "Laptop",
-                specs: {
-                  cpu: "Apple M4 chip with 10-core CPU (4 performance cores, 6 efficiency cores)",
-                  ram: "16GB unified memory (configurable to 24GB or 32GB)",
-                  storage: "256GB SSD (configurable to 512GB, 1TB, or 2TB)",
-                  gpu: "8-core or 10-core GPU",
-                  display: "13.6-inch Liquid Retina display (2560 x 1664)",
-                  os: "macOS Sequoia",
-                  warranty: "1 Year",
-                  model: "MacBook Air (M4, 2025)",
-                },
-                description:
-                  "The 2025 MacBook Air features Apple's new M4 chip, delivering enhanced performance and efficiency. It boasts a 13.6-inch Liquid Retina display, improved camera, and up to 18 hours of battery life. Available in new Sky Blue color, it offers a sleek design with support for up to two external displays. Ideal for students, professionals, and everyday users seeking a powerful yet portable laptop.",
-              },
-              {
-                id: 16,
-                name: "Lenovo LOQ 15IAX9E",
-                brand: "Lenovo",
-                price: 999, // Starting price in USD
-                image: "lenovo.png",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core i5-12450HX",
-                  ram: "8GB DDR5",
-                  storage: "512GB SSD",
-                  gpu: "NVIDIA GeForce RTX 2050 4GB",
-                  display: "15.6-inch Full HD (1920x1080) 144Hz",
-                  os: "Windows 11 Pro",
-                  warranty: "1 Year",
-                  model: "LOQ 15IAX9E",
-                },
-                description:
-                  "The Lenovo LOQ 15IAX9E is a budget-friendly gaming laptop designed for gamers seeking reliable performance without breaking the bank. Equipped with an Intel Core i5-12450HX processor and NVIDIA GeForce RTX 2050 GPU, it delivers smooth gameplay on a 15.6-inch Full HD display with a 144Hz refresh rate. Ideal for entry-level gaming and everyday tasks.",
-              },
-              {
-                id: 17,
-                name: "HP 2025 Premium Laptop",
-                brand: "HP",
-                price: 999, // Starting price in USD
-                image: "HP_2025_Premium_Laptop.jpg",
-                category: "Laptop",
-                specs: {
-                  cpu: "Intel Core i7-1355U",
-                  ram: "32GB DDR4",
-                  storage: "1TB PCIe SSD",
-                  gpu: "Integrated Intel Iris Xe",
-                  display: '17.3" HD+ Touchscreen',
-                  os: "Windows 11 Home",
-                  warranty: "1 Year",
-                  model: "HP 2025 Premium",
-                },
-                description:
-                  "The HP 2025 Premium Laptop offers powerful performance with its Intel Core i7 processor and ample 32GB RAM, making it suitable for multitasking and demanding applications. The 17.3-inch HD+ touchscreen provides a spacious and responsive display, ideal for both work and entertainment. With a 1TB PCIe SSD, it ensures fast boot times and ample storage for your files. Running on Windows 11 Home, it delivers a modern and secure computing experience.",
-              },
-              {
-                id: 18,
-                name: "Dell XPS 13 9345",
-                brand: "Dell",
-                price: 1499, // Starting price in USD
-                image: "Dell_XPS_13_9345.jpg",
-                category: "Premium Laptop",
-                specs: {
-                  cpu: "Qualcomm Snapdragon X Elite 12-Core",
-                  ram: "32GB LPDDR5X",
-                  storage: "1TB SSD",
-                  gpu: "Integrated Qualcomm Adreno",
-                  display: "13.4-inch FHD+ (1920x1200) 120Hz",
-                  os: "Windows 11 Pro",
-                  warranty: "1 Year",
-                  model: "XPS 13 9345",
-                },
-                description:
-                  "The Dell XPS 13 9345 is a sleek and powerful ultrabook designed for professionals and creatives. Powered by the Qualcomm Snapdragon X Elite 12-core processor and equipped with 32GB of LPDDR5X RAM, it offers exceptional performance and efficiency. The 13.4-inch FHD+ display with a 120Hz refresh rate provides vibrant visuals, while the 1TB SSD ensures ample storage and fast data access. Running on Windows 11 Pro, it delivers a seamless and secure computing experience.",
-              },
-              {
-                id: 19,
-                name: "Lenovo Legion Pro 7i Gen 10",
-                brand: "Lenovo",
-                price: 2399, // Starting price in USD
-                image: "legion.jpg",
-                category: "Gaming Laptop",
-                specs: {
-                  cpu: "Intel Core Ultra 9 275HX",
-                  ram: "64GB DDR5",
-                  storage: "2TB PCIe 5.0 SSD",
-                  gpu: "NVIDIA GeForce RTX 5080 16GB",
-                  display: '16.0" WQXGA OLED 500 nits 240Hz',
-                  os: "Windows 11 Pro",
-                  warranty: "1 Year",
-                  model: "Legion Pro 7i Gen 10",
-                },
-                description:
-                  "The Lenovo Legion Pro 7i Gen 10 is a high-performance gaming laptop designed for competitive gamers. Powered by the Intel Core Ultra 9 275HX processor and NVIDIA GeForce RTX 5080 GPU, it delivers exceptional gaming performance. The 16.0-inch WQXGA OLED display with a 240Hz refresh rate ensures smooth visuals, while the 64GB DDR5 RAM and 2TB PCIe 5.0 SSD provide ample memory and storage. Running on Windows 11 Pro, it offers a seamless gaming experience.",
-              },
-            ];
+        {
+          id: 3,
+          name: "MacBook Air M2",
+          brand: "Apple",
+          price: 1199,
+          image: "MacBook Air M2.jpg",
+          category: "Laptop",
+          specs: {
+            cpu: "Apple M2 Chip",
+            ram: "8GB Unified Memory",
+            storage: "256GB SSD",
+            gpu: "Integrated 8-core GPU",
+            display: "13.6-inch Liquid Retina Display",
+            os: "macOS",
+            warranty: "1 Year",
+          },
+          description:
+            "MacBook Air M2 ផ្តល់ថាមពល និងប្រសិទ្ធភាពក្នុងកញ្ចក់ស្តើង និងស្រាល។ ល្អសម្រាប់ស្នាដៃ និងការច្នៃប្រឌិត។",
+        },
+        {
+          id: 4,
+          name: "HP Pavilion 15 (Ryzen 5)",
+          brand: "HP",
+          price: 750,
+          image: "HP Pavilion 15 (Ryzen 5).jpeg",
+          category: "Laptop",
+          specs: {
+            cpu: "AMD Ryzen 5 5500U",
+            ram: "8GB DDR4",
+            storage: "512GB PCIe NVMe SSD",
+            gpu: "AMD Radeon Graphics",
+            display: "15.6 inch Full HD IPS",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "HP Pavilion 15 មានតុល្យភាពល្អរវាងតម្លៃ និងសមត្ថភាព សាកសមសម្រាប់ការងារ និងការកម្សាន្ត។",
+        },
+        {
+          id: 5,
+          name: "Lenovo Legion 5 Pro (Gaming)",
+          brand: "Lenovo",
+          price: 1499,
+          image: "Lenovo Legion 5 Pro (Gaming).png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "AMD Ryzen 7 6800H",
+            ram: "16GB DDR5",
+            storage: "1TB NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 3060",
+            display: "16 inch QHD IPS (165Hz)",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "Lenovo Legion 5 Pro រចនាសម្រាប់ Gaming បង្ហាញខ្លួនល្អ ជាមួយ Hardware ថាមពលខ្ពស់។",
+        },
+        {
+          id: 6,
+          name: "ASUS ROG Strix G18 2025",
+          brand: "ASUS",
+          price: 3299,
+          image: "ASUS ROG Strix G18 2025.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core Ultra 9 275HX",
+            ram: "32GB DDR5 5600Mhz",
+            storage: "2TB PCIe 4.0",
+            gpu: "NVIDIA RTX 5080 16GB",
+            display: "18-inch 2K 240Hz",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+            model: "G815LW-G18",
+            weight: "3.4 kg",
+          },
+          description:
+            "ASUS ROG Strix Scar 18 (G815LW-G18) មានសមត្ថភាពខ្ពស់ សម្រាប់ហ្គេម និង Content Creation។",
+        },
+        {
+          id: 7,
+          name: "MSI GL63 15.6 Gaming Laptop",
+          brand: "MSI",
+          price: 1159,
+          image: "MSI GL63 15.6 Gaming Laptop.jpg",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i7-9750H",
+            ram: "16GB DDR4",
+            storage: "512GB SSD",
+            gpu: "NVIDIA GeForce RTX 2060 6GB",
+            display: "15.6 inch Full HD (1920x1080)",
+            os: "Windows 11",
+            warranty: "1 Year",
+            vga: "6GB VRAM",
+            model: "GL63 15.6",
+          },
+          description:
+            "MSI GL63 15.6 ជា Gaming Laptop សមរម្យសម្រាប់ការចាប់ផ្តើមលេងហ្គេម និងប្រើប្រាស់រួម។",
+        },
+        {
+          id: 8,
+          name: "MSI CYBORG 15",
+          brand: "MSI",
+          price: 649,
+          image: "MIS Cyborg 15.jpg",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i5-12450H",
+            ram: "8GB DDR5",
+            storage: "512GB M.2 G4",
+            gpu: "NVIDIA GeForce RTX 3500 4GB",
+            display: "15.6 inch 144Hz",
+            os: "Windows 11",
+            warranty: "1 Year",
+            model: "A12UC-1695KH",
+          },
+          description:
+            "MSI CYBORG 15 ជា Gaming Laptop សមរម្យសម្រាប់ការចាប់ផ្តើមលេងហ្គេម និងប្រើប្រាស់រួម។",
+        },
+        {
+          id: 9,
+          name: "ASUS ROG Zephyrus G16",
+          brand: "ASUS",
+          price: 4099,
+          image: "rog.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core Ultra 9 285H (16C,16T 5.4GHz)",
+            ram: "64GB DDR5",
+            storage: "2TB M.2 G4",
+            gpu: "NVIDIA GeForce RTX 5090 24GB",
+            display: "2K 16-inch OLED  240Hz",
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "GA6O5CX-QRO71W",
+          },
+          description:
+            "ASUS ROG Zephyrus G16 GU605 គឺជាកុំព្យូទ័រ Gaming Laptop មានសមត្ថភាពខ្ពស់ សម្រាប់ការលេងហ្គេម និងការងារប្រកបដោយការច្នៃប្រឌិត។",
+        },
+        {
+          id: 10,
+          name: "ASUS ROG Strix SCAR 16 G635LX-RW166W",
+          brand: "ASUS",
+          price: 3299, // Estimated price in USD
+          image: "rogscar.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core Ultra 9 275HX (24 cores, up to 5.4GHz)",
+            ram: "64GB DDR5 5600MHz",
+            storage: "2TB PCIe Gen 4.0 SSD",
+            gpu: "NVIDIA GeForce RTX 5090 Laptop GPU (24GB GDDR7)",
+            display: "16-inch 2.5K Mini LED 240Hz/3ms, 16:10 aspect ratio",
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "G635LX-RW166W",
+          },
+          description:
+            "The ASUS ROG Strix SCAR 16 G635LX-RW166W is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the Intel Core Ultra 9 275HX processor, 64GB of DDR5 RAM, and the powerful NVIDIA GeForce RTX 5090 GPU with 24GB of GDDR7 memory. The 16-inch 2.5K Mini LED display offers a 240Hz refresh rate and 3ms response time, providing an immersive gaming experience. With a 2TB PCIe Gen 4.0 SSD and Windows 11 Pro, this laptop ensures fast performance and productivity. Its robust cooling system includes an end-to-end vapor chamber, Tri-Fan Technology, and Conductonaut Extreme liquid metal on CPU and GPU, keeping temperatures in check during intense gaming sessions.",
+        },
+        {
+          id: 11,
+          name: "ASUS ROG Zephyrus G14 GA403WW-QS072WS",
+          brand: "ASUS",
+          price: 3199, // Estimated price in USD
+          image: "ASUS ROG Zephyrus G14 GA403WW-QS072WS.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "AMD Ryzen AI 9 HX 370 (12 cores, up to 5.1GHz)",
+            ram: "64GB LPDDR5X",
+            storage: "2TB PCIe Gen 4.0 NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 5080 (16GB GDDR7)",
+            display: "14-inch 3K (2880x1800) 120Hz OLED",
+            os: "Windows 11 Pro",
+            warranty: "2 Years",
+            model: "GA403WW-QS072WS",
+          },
+          description:
+            "The ASUS ROG Zephyrus G14 GA403WW-QS072WS is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the AMD Ryzen AI 9 HX 370 processor, 64GB of LPDDR5X RAM, and the powerful NVIDIA GeForce RTX 5080 GPU with 16GB of GDDR7 memory. The 14-inch 3K OLED display offers a 120Hz refresh rate, providing an immersive gaming experience. With a 2TB PCIe Gen 4.0 SSD and Windows 11 Pro, this laptop ensures fast performance and productivity. Its robust cooling system includes an end-to-end vapor chamber, Tri-Fan Technology, and Conductonaut Extreme liquid metal on CPU and GPU, keeping temperatures in check during intense gaming sessions.",
+        },
+        {
+          id: 12,
+          name: "MSI Crosshair A18 HX A8WX",
+          brand: "MSI",
+          price: 1799, // Estimated price in USD
+          image: "MSI Crosshair A18 HX A8WX.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "AMD Ryzen 9 8940HX",
+            ram: "32GB DDR5-5600",
+            storage: "1TB PCIe Gen 4.0 NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 5070 Laptop GPU",
+            display: "18-inch QHD+ (2560x1600), 240Hz IPS-Level",
+            os: "Windows 11 Home",
+            warranty: "2 Years",
+            model: "A8WX",
+          },
+          description:
+            "The MSI Crosshair A18 HX A8WX is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the AMD Ryzen 9 8940HX processor, 32GB of DDR5 RAM, and the powerful NVIDIA GeForce RTX 5070 GPU. The 18-inch QHD+ display offers a 240Hz refresh rate, providing an immersive gaming experience. With a 1TB PCIe Gen 4.0 SSD and Windows 11 Home, this laptop ensures fast performance and productivity. Its robust cooling system includes an end-to-end vapor chamber, Tri-Fan Technology, and Conductonaut Extreme liquid metal on CPU and GPU, keeping temperatures in check during intense gaming sessions.",
+        },
+        {
+          id: 13,
+          name: "ASUS TUF Gaming F16 (2024)",
+          brand: "ASUS",
+          price: 1259, // Estimated price in USD
+          image: "ASUS TUF Gaming F16 (2024).png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i7-13650HX (14 cores, up to 4.9GHz)",
+            ram: "32GB DDR5-4800MHz",
+            storage: "1TB PCIe Gen 4.0 SSD",
+            gpu: "NVIDIA GeForce RTX 5060 Laptop GPU",
+            display: "16-inch FHD+ (1920x1200) 165Hz IPS-Level",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+            model: "FX607JV",
+          },
+          description:
+            "The ASUS TUF Gaming F16 (2024) is a high-performance gaming laptop designed for enthusiasts seeking top-tier specifications. It features the Intel Core i7-13650HX processor, 32GB of DDR5 RAM, and the powerful NVIDIA GeForce RTX 5060 GPU. The 16-inch FHD+ display offers a 165Hz refresh rate, providing an immersive gaming experience. With a 1TB PCIe Gen 4.0 SSD and Windows 11 Home, this laptop ensures fast performance and productivity. Its robust cooling system includes 84-blade Arc Flow Fans™, 5 heatpipes, dust filters, and 4 exhaust vents, keeping temperatures in check during intense gaming sessions.",
+        },
+        {
+          id: 14,
+          name: "Apple MacBook Air (2025)",
+          brand: "Apple",
+          price: 999, // Starting price in USD
+          image: "Apple_MacBook_Air_2025.jpg",
+          category: "Laptop",
+          specs: {
+            cpu: "Apple M4 chip with 10-core CPU (4 performance cores, 6 efficiency cores)",
+            ram: "16GB unified memory (configurable to 24GB or 32GB)",
+            storage: "256GB SSD (configurable to 512GB, 1TB, or 2TB)",
+            gpu: "8-core or 10-core GPU",
+            display: "13.6-inch Liquid Retina display (2560 x 1664)",
+            os: "macOS Sequoia",
+            warranty: "1 Year",
+            model: "MacBook Air (M4, 2025)",
+          },
+          description:
+            "The 2025 MacBook Air features Apple's new M4 chip, delivering enhanced performance and efficiency. It boasts a 13.6-inch Liquid Retina display, improved camera, and up to 18 hours of battery life. Available in new Sky Blue color, it offers a sleek design with support for up to two external displays. Ideal for students, professionals, and everyday users seeking a powerful yet portable laptop.",
+        },
+        {
+          id: 16,
+          name: "Lenovo LOQ 15IAX9E",
+          brand: "Lenovo",
+          price: 999, // Starting price in USD
+          image: "lenovo.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i5-12450HX",
+            ram: "8GB DDR5",
+            storage: "512GB SSD",
+            gpu: "NVIDIA GeForce RTX 2050 4GB",
+            display: "15.6-inch Full HD (1920x1080) 144Hz",
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "LOQ 15IAX9E",
+          },
+          description:
+            "The Lenovo LOQ 15IAX9E is a budget-friendly gaming laptop designed for gamers seeking reliable performance without breaking the bank. Equipped with an Intel Core i5-12450HX processor and NVIDIA GeForce RTX 2050 GPU, it delivers smooth gameplay on a 15.6-inch Full HD display with a 144Hz refresh rate. Ideal for entry-level gaming and everyday tasks.",
+        },
+        {
+          id: 17,
+          name: "HP 2025 Premium Laptop",
+          brand: "HP",
+          price: 999, // Starting price in USD
+          image: "HP_2025_Premium_Laptop.jpg",
+          category: "Laptop",
+          specs: {
+            cpu: "Intel Core i7-1355U",
+            ram: "32GB DDR4",
+            storage: "1TB PCIe SSD",
+            gpu: "Integrated Intel Iris Xe",
+            display: '17.3" HD+ Touchscreen',
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+            model: "HP 2025 Premium",
+          },
+          description:
+            "The HP 2025 Premium Laptop offers powerful performance with its Intel Core i7 processor and ample 32GB RAM, making it suitable for multitasking and demanding applications. The 17.3-inch HD+ touchscreen provides a spacious and responsive display, ideal for both work and entertainment. With a 1TB PCIe SSD, it ensures fast boot times and ample storage for your files. Running on Windows 11 Home, it delivers a modern and secure computing experience.",
+        },
+        {
+          id: 18,
+          name: "Dell XPS 13 9345",
+          brand: "Dell",
+          price: 1499, // Starting price in USD
+          image: "Dell_XPS_13_9345.jpg",
+          category: "Premium Laptop",
+          specs: {
+            cpu: "Qualcomm Snapdragon X Elite 12-Core",
+            ram: "32GB LPDDR5X",
+            storage: "1TB SSD",
+            gpu: "Integrated Qualcomm Adreno",
+            display: "13.4-inch FHD+ (1920x1200) 120Hz",
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "XPS 13 9345",
+          },
+          description:
+            "The Dell XPS 13 9345 is a sleek and powerful ultrabook designed for professionals and creatives. Powered by the Qualcomm Snapdragon X Elite 12-core processor and equipped with 32GB of LPDDR5X RAM, it offers exceptional performance and efficiency. The 13.4-inch FHD+ display with a 120Hz refresh rate provides vibrant visuals, while the 1TB SSD ensures ample storage and fast data access. Running on Windows 11 Pro, it delivers a seamless and secure computing experience.",
+        },
+        {
+          id: 19,
+          name: "Lenovo Legion Pro 7i Gen 10",
+          brand: "Lenovo",
+          price: 2399, // Starting price in USD
+          image: "legion.jpg",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core Ultra 9 275HX",
+            ram: "64GB DDR5",
+            storage: "2TB PCIe 5.0 SSD",
+            gpu: "NVIDIA GeForce RTX 5080 16GB",
+            display: '16.0" WQXGA OLED 500 nits 240Hz',
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "Legion Pro 7i Gen 10",
+          },
+          description:
+            "The Lenovo Legion Pro 7i Gen 10 is a high-performance gaming laptop designed for competitive gamers. Powered by the Intel Core Ultra 9 275HX processor and NVIDIA GeForce RTX 5080 GPU, it delivers exceptional gaming performance. The 16.0-inch WQXGA OLED display with a 240Hz refresh rate ensures smooth visuals, while the 64GB DDR5 RAM and 2TB PCIe 5.0 SSD provide ample memory and storage. Running on Windows 11 Pro, it offers a seamless gaming experience.",
+        },
+        {
+          id: 20,
+          name: "Dell XPS 13 9345",
+          brand: "Dell",
+          price: 1299, // Starting price in USD
+          image: "dell2025.jpg",
+          category: "Ultrabook",
+          specs: {
+            cpu: "Qualcomm Snapdragon X Elite X1E-80-100",
+            ram: "16GB LPDDR5X",
+            storage: "512GB SSD",
+            gpu: "Qualcomm Adreno",
+            display: '13.4" FHD+ 120Hz',
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "XPS 13 9345",
+          },
+          description:
+            "The 2025 Dell XPS 13 9345 is a sleek and powerful ultrabook designed for professionals and everyday users seeking a balance between performance and portability. Powered by the Qualcomm Snapdragon X Elite X1E-80-100 processor and equipped with Qualcomm Adreno graphics, it delivers efficient performance for various tasks. The 13.4-inch FHD+ display with a 120Hz refresh rate provides vibrant visuals, while the 16GB LPDDR5X RAM and 512GB SSD ensure smooth multitasking and ample storage. Running on Windows 11 Pro, it offers a modern and secure computing experience.",
+        },
+      ];
 
-            /* Utility functions */
-            function getProductById(id) {
-              return products.find((p) => p.id === parseInt(id));
-            }
-            function getFeaturedProducts() {
-              return products.slice(0, 3);
-            }
-            function getUniqueBrands() {
-              const brands = [...new Set(products.map((p) => p.brand))];
-              return ["all", ...brands].sort();
-            }
+      /* Utility functions */
+      function getProductById(id) {
+        return products.find((p) => p.id === parseInt(id));
+      }
+      function getFeaturedProducts() {
+        return products.slice(0, 3);
+      }
+      function getUniqueBrands() {
+        const brands = [...new Set(products.map((p) => p.brand))];
+        return ["all", ...brands].sort();
+      }
 
-            /* ===== script.js (embedded & adapted for single-file SPA) ===== */
+      /* ===== script.js (embedded & adapted for single-file SPA) ===== */
 
-            function $qs(selector, parent = document) {
-              return parent.querySelector(selector);
-            }
-            function $qsa(selector, parent = document) {
-              return Array.from(parent.querySelectorAll(selector));
-            }
+      function $qs(selector, parent = document) {
+        return parent.querySelector(selector);
+      }
+      function $qsa(selector, parent = document) {
+        return Array.from(parent.querySelectorAll(selector));
+      }
 
-            /* Render functions */
-            function renderHome() {
-              const container = document.getElementById("app");
-              const featured = getFeaturedProducts();
-              container.innerHTML = `
+      /* Render functions */
+      function renderHome() {
+        const container = document.getElementById("app");
+        const featured = getFeaturedProducts();
+        container.innerHTML = `
           <section id="hero" class="hero-section">
             <div class="container">
               <h2>ស្វែងរកកុំព្យូទ័រល្អបំផុតសម្រាប់អ្នក!</h2>
@@ -781,36 +801,36 @@
           </section>
         `;
 
-              const featuredList = $qs("#featured-product-list");
-              featured.forEach((p) => featuredList.appendChild(createProductCard(p)));
-            }
+        const featuredList = $qs("#featured-product-list");
+        featured.forEach((p) => featuredList.appendChild(createProductCard(p)));
+      }
 
-            function createProductCard(product) {
-              const card = document.createElement("div");
-              card.className = "product-card";
-              card.innerHTML = `
+      function createProductCard(product) {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
           <img src="${product.image}" alt="${escapeHtml(
-                product.name
-              )}" onerror="this.style.opacity=0.6; this.alt='no image'">
+          product.name
+        )}" onerror="this.style.opacity=0.6; this.alt='no image'">
           <h3 title="${escapeHtml(product.name)}">${product.name}</h3>
           <p class="price">$${Number(product.price).toLocaleString()}</p>
           <a href="#product-${product.id}" class="btn">មើលលម្អិត</a>
         `;
-              return card;
-            }
+        return card;
+      }
 
-            function escapeHtml(text) {
-              if (!text) return "";
-              return text
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;");
-            }
+      function escapeHtml(text) {
+        if (!text) return "";
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
 
-            /* Products view with filter & sort */
-            function renderProducts() {
-              const container = document.getElementById("app");
-              container.innerHTML = `
+      /* Products view with filter & sort */
+      function renderProducts() {
+        const container = document.getElementById("app");
+        container.innerHTML = `
           <section class="all-products-section">
             <div class="container">
               <h2>ផលិតផលទាំងអស់</h2>
@@ -831,65 +851,65 @@
           </section>
         `;
 
-              const brandFilter = $qs("#brand-filter");
-              const sortBy = $qs("#sort-by");
-              // populate brands
-              const brands = getUniqueBrands();
-              brandFilter.innerHTML = "";
-              brands.forEach((b) => {
-                const opt = document.createElement("option");
-                opt.value = b === "all" ? "all" : b;
-                opt.textContent = b === "all" ? "ទាំងអស់" : b;
-                brandFilter.appendChild(opt);
-              });
+        const brandFilter = $qs("#brand-filter");
+        const sortBy = $qs("#sort-by");
+        // populate brands
+        const brands = getUniqueBrands();
+        brandFilter.innerHTML = "";
+        brands.forEach((b) => {
+          const opt = document.createElement("option");
+          opt.value = b === "all" ? "all" : b;
+          opt.textContent = b === "all" ? "ទាំងអស់" : b;
+          brandFilter.appendChild(opt);
+        });
 
-              brandFilter.addEventListener("change", applyFilters);
-              sortBy.addEventListener("change", applyFilters);
+        brandFilter.addEventListener("change", applyFilters);
+        sortBy.addEventListener("change", applyFilters);
 
-              applyFilters();
-            }
+        applyFilters();
+      }
 
-            function applyFilters() {
-              const brand = $qs("#brand-filter") ? $qs("#brand-filter").value : "all";
-              const sortBy = $qs("#sort-by") ? $qs("#sort-by").value : "default";
-              let list = [...products];
+      function applyFilters() {
+        const brand = $qs("#brand-filter") ? $qs("#brand-filter").value : "all";
+        const sortBy = $qs("#sort-by") ? $qs("#sort-by").value : "default";
+        let list = [...products];
 
-              if (brand && brand !== "all") {
-                list = list.filter((p) => p.brand === brand);
-              }
+        if (brand && brand !== "all") {
+          list = list.filter((p) => p.brand === brand);
+        }
 
-              if (sortBy === "price-asc") {
-                list.sort((a, b) => a.price - b.price);
-              } else if (sortBy === "price-desc") {
-                list.sort((a, b) => b.price - a.price);
-              }
+        if (sortBy === "price-asc") {
+          list.sort((a, b) => a.price - b.price);
+        } else if (sortBy === "price-desc") {
+          list.sort((a, b) => b.price - a.price);
+        }
 
-              const productList = $qs("#product-list");
-              productList.innerHTML = "";
-              if (list.length === 0) {
-                productList.innerHTML =
-                  '<p style="text-align:center; width:100%;">មិនមានផលិតផលត្រូវគ្នា</p>';
-                return;
-              }
-              list.forEach((p) => productList.appendChild(createProductCard(p)));
-            }
+        const productList = $qs("#product-list");
+        productList.innerHTML = "";
+        if (list.length === 0) {
+          productList.innerHTML =
+            '<p style="text-align:center; width:100%;">មិនមានផលិតផលត្រូវគ្នា</p>';
+          return;
+        }
+        list.forEach((p) => productList.appendChild(createProductCard(p)));
+      }
 
-            /* Product detail */
-            function renderProductDetail(id) {
-              const product = getProductById(id);
-              const container = document.getElementById("app");
-              if (!product) {
-                container.innerHTML = `<section class="product-detail-section"><div class="container"><p>មិនអាចរកឃើញផលិតផលនេះបានទេ។</p></div></section>`;
-                return;
-              }
+      /* Product detail */
+      function renderProductDetail(id) {
+        const product = getProductById(id);
+        const container = document.getElementById("app");
+        if (!product) {
+          container.innerHTML = `<section class="product-detail-section"><div class="container"><p>មិនអាចរកឃើញផលិតផលនេះបានទេ។</p></div></section>`;
+          return;
+        }
 
-              container.innerHTML = `
+        container.innerHTML = `
           <section class="product-detail-section">
             <div class="container product-detail-container" id="product-detail-container">
               <div class="product-detail-image">
                 <img src="${product.image}" alt="${escapeHtml(
-                product.name
-              )}" onerror="this.style.opacity=0.6; this.alt='no image'">
+          product.name
+        )}" onerror="this.style.opacity=0.6; this.alt='no image'">
               </div>
               <div class="product-detail-info">
                 <h2>${escapeHtml(product.name)}</h2>
@@ -951,40 +971,40 @@
           </section>
         `;
 
-              $qs("#add-cart-btn").addEventListener("click", (e) => {
-                e.preventDefault();
-                addToCart(product.id);
-              });
-            }
+        $qs("#add-cart-btn").addEventListener("click", (e) => {
+          e.preventDefault();
+          addToCart(product.id);
+        });
+      }
 
-            /* Simple cart (localStorage) */
-            function addToCart(productId) {
-              const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-              cart.push(productId);
-              localStorage.setItem("cart", JSON.stringify(cart));
-              alert("បានបន្ថែមចូលកន្ត្រក ✔");
-            }
+      /* Simple cart (localStorage) */
+      function addToCart(productId) {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        cart.push(productId);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("បានបន្ថែមចូលកន្ត្រក ✔");
+      }
 
-            /* Router (hash-based) */
-            function router() {
-              const hash = location.hash || "#home";
-              // Support #product-<id>
-              if (hash.startsWith("#product-")) {
-                const id = hash.split("-")[1];
-                renderProductDetail(id);
-              } else if (hash === "#products") {
-                renderProducts();
-              } else {
-                renderHome();
-                // If hash contains anchor like #home#about, we keep content same; anchors ignored here
-              }
-            }
+      /* Router (hash-based) */
+      function router() {
+        const hash = location.hash || "#home";
+        // Support #product-<id>
+        if (hash.startsWith("#product-")) {
+          const id = hash.split("-")[1];
+          renderProductDetail(id);
+        } else if (hash === "#products") {
+          renderProducts();
+        } else {
+          renderHome();
+          // If hash contains anchor like #home#about, we keep content same; anchors ignored here
+        }
+      }
 
-            /* Listen to hash changes */
-            window.addEventListener("hashchange", router);
-            window.addEventListener("load", () => {
-              router();
-            });
+      /* Listen to hash changes */
+      window.addEventListener("hashchange", router);
+      window.addEventListener("load", () => {
+        router();
+      });
     </script>
   </body>
 </html>
