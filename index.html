@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ហាងកុំព្យូទ័រRichhat - Single File</title>
+
+    <style>
+      /* ===== style.css (embedded) ===== */
+
+      /* Base Styles */
+      body {
+        font-family: "Khmer OS Siemreap", "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #be5e5e;
+        color: #1f3dd1;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+
+      a {
+        color: #050f19;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        background-color: #c66b6b;
+        color: white;
+        padding: 10px 0;
+        border-bottom: 3px solid #eff1ef;
+      }
+
+      header h1 {
+        margin: 0;
+        float: left;
+      }
+
+      header h1 a {
+        color: white;
+        text-decoration: none;
+      }
+
+      header nav {
+        float: right;
+      }
+
+      header nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      header nav ul li {
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      header nav ul li a {
+        color: white;
+        font-weight: bold;
+      }
+
+      header nav ul li a:hover {
+        color: #007bff;
+      }
+
+      /* Clearfix for header */
+      header .container::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        /* simple gradient instead of external image for single-file portability */
+        background: linear-gradient(135deg, #6b9cff 0%, #3f6fe0 100%);
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+        animation: fadeIn 1s ease-out;
+      }
+
+      .hero-section h2 {
+        font-size: 2.2em;
+        margin-bottom: 12px;
+      }
+
+      .hero-section p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+      }
+
+      /* Product Sections */
+      .featured-products-section,
+      .all-products-section,
+      .about-section,
+      .contact-section,
+      .product-detail-section {
+        padding: 24px 0;
+        background-color: white;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .featured-products-section h2,
+      .all-products-section h2,
+      .about-section h2,
+      .contact-section h2,
+      .product-detail-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .product-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card img {
+        max-width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        background: #f5f5f5;
+      }
+
+      .product-card h3 {
+        font-size: 1.1em;
+        margin: 12px 10px 5px;
+        height: 48px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .product-card p.price {
+        font-size: 1.2em;
+        color: #e60000;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .product-card .btn {
+        margin-bottom: 15px;
+      }
+
+      /* Filter Options */
+      .filter-options {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .filter-options label {
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .filter-options select {
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-right: 12px;
+      }
+
+      /* Product Detail Page */
+      .product-detail-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 20px;
+      }
+
+      .product-detail-image {
+        flex: 1;
+        min-width: 260px;
+        text-align: center;
+      }
+
+      .product-detail-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-detail-info {
+        flex: 2;
+        min-width: 260px;
+      }
+
+      .product-detail-info h2 {
+        text-align: left;
+        font-size: 1.6em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .product-detail-info .price {
+        font-size: 1.4em;
+        color: #e60000;
+        font-weight: bold;
+        margin-bottom: 12px;
+      }
+
+      .product-detail-info p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      .product-detail-info ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 12px;
+      }
+
+      .product-detail-info ul li {
+        background-color: #f9f9f9;
+        margin-bottom: 6px;
+        padding: 8px 12px;
+        border-left: 4px solid #007bff;
+        border-radius: 4px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 16px 0;
+        margin-top: 20px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        header h1 {
+          float: none;
+          text-align: center;
+        }
+        header nav {
+          float: none;
+          text-align: center;
+          margin-top: 10px;
+        }
+        header nav ul li {
+          margin: 0 10px;
+        }
+
+        .hero-section {
+          padding: 40px 0;
+        }
+        .hero-section h2 {
+          font-size: 1.6em;
+        }
+        .product-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .product-detail-container {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          width: 95%;
+        }
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+        .product-detail-info h2 {
+          font-size: 1.3em;
+        }
+        .product-detail-info .price {
+          font-size: 1.2em;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1><a href="#home">ហាងលក់កុំព្យូទ័រRichhat</a></h1>
+        <nav>
+          <ul>
+            <li><a href="#home">ទំព័រដើម</a></li>
+            <li><a href="#products">ផលិតផល</a></li>
+            <li><a href="#home#about">អំពីយើង</a></li>
+            <li><a href="#home#contact">ទំនាក់ទំនង</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" id="app">
+      <!-- Content injected by JS -->
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 ហាងលក់កុំព្យូទ័រRichhat. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+      </div>
+    </footer>
+
+    <!-- ===== products-data + logic (embedded) ===== -->
+    <script>
+      /* ===== products-data.js (embedded, cleaned) ===== */
+      const products = [
+        {
+          id: 1,
+          name: "Laptop Gaming ASUS ROG Strix G15",
+          brand: "ASUS",
+          price: 1299,
+          image: "Laptop Gaming ASUS ROG Strix G15.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i7-12700H",
+            ram: "16GB DDR4",
+            storage: "512GB NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 3050",
+            display: "15.6 inch Full HD IPS (144Hz)",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "ASUS ROG Strix G15 ជាជម្រើសល្អសម្រាប់អ្នកលេងហ្គេម ដែលមាន CPU ជំនាន់ចុងក្រោយ និងកាតក្រាហ្វិកមានថាមពល។",
+        },
+        {
+          id: 2,
+          name: "Dell XPS 13 Ultrabook",
+          brand: "Dell",
+          price: 999,
+          image: "Dell XPS 13 UltraBook.avif",
+          category: "Ultrabook",
+          specs: {
+            cpu: "Intel Core i5-1240P",
+            ram: "8GB LPDDR5",
+            storage: "256GB NVMe SSD",
+            gpu: "Intel Iris Xe Graphics",
+            display: "13.4 inch Full HD+ InfinityEdge",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "Dell XPS 13 ផ្តល់បទពិសោធន៍ប្រើប្រាស់ល្អ ជាមួយរចនាស្ដើង និងអេក្រង់គ្មានគែម។",
+        },
+        {
+          id: 3,
+          name: "MacBook Air M2",
+          brand: "Apple",
+          price: 1199,
+          image: "MacBook Air M2.jpg",
+          category: "Laptop",
+          specs: {
+            cpu: "Apple M2 Chip",
+            ram: "8GB Unified Memory",
+            storage: "256GB SSD",
+            gpu: "Integrated 8-core GPU",
+            display: "13.6-inch Liquid Retina Display",
+            os: "macOS",
+            warranty: "1 Year",
+          },
+          description:
+            "MacBook Air M2 ផ្តល់ថាមពល និងប្រសិទ្ធភាពក្នុងកញ្ចក់ស្តើង និងស្រាល។ ល្អសម្រាប់ស្នាដៃ និងការច្នៃប្រឌិត។",
+        },
+        {
+          id: 4,
+          name: "HP Pavilion 15 (Ryzen 5)",
+          brand: "HP",
+          price: 750,
+          image: "HP Pavilion 15 (Ryzen 5).jpeg",
+          category: "Laptop",
+          specs: {
+            cpu: "AMD Ryzen 5 5500U",
+            ram: "8GB DDR4",
+            storage: "512GB PCIe NVMe SSD",
+            gpu: "AMD Radeon Graphics",
+            display: "15.6 inch Full HD IPS",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "HP Pavilion 15 មានតុល្យភាពល្អរវាងតម្លៃ និងសមត្ថភាព សាកសមសម្រាប់ការងារ និងការកម្សាន្ត។",
+        },
+        {
+          id: 5,
+          name: "Lenovo Legion 5 Pro (Gaming)",
+          brand: "Lenovo",
+          price: 1499,
+          image: "Lenovo Legion 5 Pro (Gaming).png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "AMD Ryzen 7 6800H",
+            ram: "16GB DDR5",
+            storage: "1TB NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 3060",
+            display: "16 inch QHD IPS (165Hz)",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+          },
+          description:
+            "Lenovo Legion 5 Pro រចនាសម្រាប់ Gaming បង្ហាញខ្លួនល្អ ជាមួយ Hardware ថាមពលខ្ពស់។",
+        },
+        {
+          id: 6,
+          name: "ASUS ROG Strix G18 2025",
+          brand: "ASUS",
+          price: 3299,
+          image: "ASUS ROG Strix G18 2025.png",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core Ultra 9 275HX",
+            ram: "32GB DDR5 5600Mhz",
+            storage: "2TB PCIe 4.0",
+            gpu: "NVIDIA RTX 5080 16GB",
+            display: "18-inch 2K 240Hz",
+            os: "Windows 11 Home",
+            warranty: "1 Year",
+            model: "G815LW-G18",
+            weight: "3.4 kg",
+          },
+          description:
+            "ASUS ROG Strix Scar 18 (G815LW-G18) មានសមត្ថភាពខ្ពស់ សម្រាប់ហ្គេម និង Content Creation។",
+        },
+        {
+          id: 7,
+          name: "MSI GL63 15.6 Gaming Laptop",
+          brand: "MSI",
+          price: 1159,
+          image: "MSI GL63 15.6 Gaming Laptop.jpg",
+          category: "Gaming Laptop",
+          specs: {
+            cpu: "Intel Core i7-9750H",
+            ram: "16GB DDR4",
+            storage: "512GB SSD",
+            gpu: "NVIDIA GeForce RTX 2060 6GB",
+            display: "15.6 inch Full HD (1920x1080)",
+            os: "Windows 11",
+            warranty: "1 Year",
+            vga: "6GB VRAM",
+            model: "GL63 15.6",
+          },
+          description:
+            "MSI GL63 15.6 ជា Gaming Laptop សមរម្យសម្រាប់ការចាប់ផ្តើមលេងហ្គេម និងប្រើប្រាស់រួម។",
+        },
+      ];
+
+      /* Utility functions */
+      function getProductById(id) {
+        return products.find((p) => p.id === parseInt(id));
+      }
+      function getFeaturedProducts() {
+        return products.slice(0, 3);
+      }
+      function getUniqueBrands() {
+        const brands = [...new Set(products.map((p) => p.brand))];
+        return ["all", ...brands].sort();
+      }
+
+      /* ===== script.js (embedded & adapted for single-file SPA) ===== */
+
+      function $qs(selector, parent = document) {
+        return parent.querySelector(selector);
+      }
+      function $qsa(selector, parent = document) {
+        return Array.from(parent.querySelectorAll(selector));
+      }
+
+      /* Render functions */
+      function renderHome() {
+        const container = document.getElementById("app");
+        const featured = getFeaturedProducts();
+        container.innerHTML = `
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <h2>ស្វែងរកកុំព្យូទ័រល្អបំផុតសម្រាប់អ្នក!</h2>
+        <p>យើងផ្តល់ជូនកុំព្យូទ័រដែលមានគុណភាពខ្ពស់ និងសេវាកម្មល្អ។</p>
+        <a href="#products" class="btn">មើលផលិតផលទាំងអស់</a>
+      </div>
+    </section>
+
+    <section class="featured-products-section">
+      <div class="container">
+        <h2>ផលិតផលលេចធ្លោ</h2>
+        <div class="product-grid" id="featured-product-list"></div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2>អំពីយើង</h2>
+        <p>ហាងកុំព្យូទ័ររបស់យើងផ្តោតលើគុណភាព សេវា និងតម្លៃសមរម្យ។</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2>ទំនាក់ទំនង</h2>
+        <p>អាសយដ្ឋាន: ផ្ទះលេខ ៥៦, ផ្លូវ ១២០, រាជធានីភ្នំពេញ</p>
+        <p>ទូរស័ព្ទ: 0972425545 , 0767160547</p>
+      </div>
+    </section>
+  `;
+
+        const featuredList = $qs("#featured-product-list");
+        featured.forEach((p) => featuredList.appendChild(createProductCard(p)));
+      }
+
+      function createProductCard(product) {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+    <img src="${product.image}" alt="${escapeHtml(
+          product.name
+        )}" onerror="this.style.opacity=0.6; this.alt='no image'">
+    <h3 title="${escapeHtml(product.name)}">${product.name}</h3>
+    <p class="price">$${Number(product.price).toLocaleString()}</p>
+    <a href="#product-${product.id}" class="btn">មើលលម្អិត</a>
+  `;
+        return card;
+      }
+
+      function escapeHtml(text) {
+        if (!text) return "";
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      /* Products view with filter & sort */
+      function renderProducts() {
+        const container = document.getElementById("app");
+        container.innerHTML = `
+    <section class="all-products-section">
+      <div class="container">
+        <h2>ផលិតផលទាំងអស់</h2>
+        <div class="filter-options">
+          <label for="brand-filter">ជ្រើសរើសម៉ាក:</label>
+          <select id="brand-filter"></select>
+
+          <label for="sort-by">តម្រៀបតាម:</label>
+          <select id="sort-by">
+            <option value="default">លំនាំដើម</option>
+            <option value="price-asc">តម្លៃ: ទាប→ខ្ពស់</option>
+            <option value="price-desc">តម្លៃ: ខ្ពស់→ទាប</option>
+          </select>
+        </div>
+
+        <div class="product-grid" id="product-list"></div>
+      </div>
+    </section>
+  `;
+
+        const brandFilter = $qs("#brand-filter");
+        const sortBy = $qs("#sort-by");
+        // populate brands
+        const brands = getUniqueBrands();
+        brandFilter.innerHTML = "";
+        brands.forEach((b) => {
+          const opt = document.createElement("option");
+          opt.value = b === "all" ? "all" : b;
+          opt.textContent = b === "all" ? "ទាំងអស់" : b;
+          brandFilter.appendChild(opt);
+        });
+
+        brandFilter.addEventListener("change", applyFilters);
+        sortBy.addEventListener("change", applyFilters);
+
+        applyFilters();
+      }
+
+      function applyFilters() {
+        const brand = $qs("#brand-filter") ? $qs("#brand-filter").value : "all";
+        const sortBy = $qs("#sort-by") ? $qs("#sort-by").value : "default";
+        let list = [...products];
+
+        if (brand && brand !== "all") {
+          list = list.filter((p) => p.brand === brand);
+        }
+
+        if (sortBy === "price-asc") {
+          list.sort((a, b) => a.price - b.price);
+        } else if (sortBy === "price-desc") {
+          list.sort((a, b) => b.price - a.price);
+        }
+
+        const productList = $qs("#product-list");
+        productList.innerHTML = "";
+        if (list.length === 0) {
+          productList.innerHTML =
+            '<p style="text-align:center; width:100%;">មិនមានផលិតផលត្រូវគ្នា</p>';
+          return;
+        }
+        list.forEach((p) => productList.appendChild(createProductCard(p)));
+      }
+
+      /* Product detail */
+      function renderProductDetail(id) {
+        const product = getProductById(id);
+        const container = document.getElementById("app");
+        if (!product) {
+          container.innerHTML = `<section class="product-detail-section"><div class="container"><p>មិនអាចរកឃើញផលិតផលនេះបានទេ។</p></div></section>`;
+          return;
+        }
+
+        container.innerHTML = `
+    <section class="product-detail-section">
+      <div class="container product-detail-container" id="product-detail-container">
+        <div class="product-detail-image">
+          <img src="${product.image}" alt="${escapeHtml(
+          product.name
+        )}" onerror="this.style.opacity=0.6; this.alt='no image'">
+        </div>
+        <div class="product-detail-info">
+          <h2>${escapeHtml(product.name)}</h2>
+          <p class="price">$${Number(product.price).toLocaleString()}</p>
+          <p>${escapeHtml(product.description)}</p>
+          <h3>លក្ខណៈពិសេស:</h3>
+          <ul>
+            ${
+              product.specs.cpu
+                ? `<li><strong>CPU:</strong> ${product.specs.cpu}</li>`
+                : ""
+            }
+            ${
+              product.specs.ram
+                ? `<li><strong>RAM:</strong> ${product.specs.ram}</li>`
+                : ""
+            }
+            ${
+              product.specs.storage
+                ? `<li><strong>Storage:</strong> ${product.specs.storage}</li>`
+                : ""
+            }
+            ${
+              product.specs.gpu
+                ? `<li><strong>GPU:</strong> ${product.specs.gpu}</li>`
+                : ""
+            }
+            ${
+              product.specs.display
+                ? `<li><strong>អេក្រង់:</strong> ${product.specs.display}</li>`
+                : ""
+            }
+            ${
+              product.specs.os
+                ? `<li><strong>OS:</strong> ${product.specs.os}</li>`
+                : ""
+            }
+            ${
+              product.specs.warranty
+                ? `<li><strong>ធានា:</strong> ${product.specs.warranty}</li>`
+                : ""
+            }
+            ${
+              product.specs.model
+                ? `<li><strong>Model:</strong> ${product.specs.model}</li>`
+                : ""
+            }
+            ${
+              product.specs.weight
+                ? `<li><strong>ទំងន់:</strong> ${product.specs.weight}</li>`
+                : ""
+            }
+          </ul>
+
+          <a href="#" class="btn" id="add-cart-btn">បន្ថែមចូលកន្ត្រក</a>
+          <a href="#products" class="btn" style="background-color:#6c757d; margin-left:8px;">ត្រលប់ទៅផលិតផល</a>
+        </div>
+      </div>
+    </section>
+  `;
+
+        $qs("#add-cart-btn").addEventListener("click", (e) => {
+          e.preventDefault();
+          addToCart(product.id);
+        });
+      }
+
+      /* Simple cart (localStorage) */
+      function addToCart(productId) {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        cart.push(productId);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("បានបន្ថែមចូលកន្ត្រក ✔");
+      }
+
+      /* Router (hash-based) */
+      function router() {
+        const hash = location.hash || "#home";
+        // Support #product-<id>
+        if (hash.startsWith("#product-")) {
+          const id = hash.split("-")[1];
+          renderProductDetail(id);
+        } else if (hash === "#products") {
+          renderProducts();
+        } else {
+          renderHome();
+          // If hash contains anchor like #home#about, we keep content same; anchors ignored here
+        }
+      }
+
+      /* Listen to hash changes */
+      window.addEventListener("hashchange", router);
+      window.addEventListener("load", () => {
+        router();
+      });
+    </script>
+  </body>
+</html>
