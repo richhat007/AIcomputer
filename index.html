@@ -14,8 +14,8 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-color: #a90000;
-        color: #1f3dd1;
+        background-color: #ffffff;
+        color: #0038d1;
       }
 
       .container {
@@ -51,8 +51,8 @@
 
       /* Header */
       header {
-        background-color: #c66b6b;
-        color: white;
+        background-color: #5f5757;
+        color: rgb(255, 255, 255);
         padding: 10px 0;
         border-bottom: 3px solid #eff1ef;
       }
@@ -63,7 +63,7 @@
       }
 
       header h1 a {
-        color: white;
+        color: rgb(255, 255, 255);
         text-decoration: none;
       }
 
@@ -83,12 +83,12 @@
       }
 
       header nav ul li a {
-        color: white;
+        color: rgb(255, 255, 255);
         font-weight: bold;
       }
 
       header nav ul li a:hover {
-        color: #007bff;
+        color: #000000;
       }
 
       /* Clearfix for header */
@@ -101,8 +101,8 @@
       /* Hero Section */
       .hero-section {
         /* simple gradient instead of external image for single-file portability */
-        background: linear-gradient(135deg, #6b9cff 0%, #3f6fe0 100%);
-        color: white;
+        background: linear-gradient(135deg, #6b9cff 0%, #0d38a4 100%);
+        color: rgb(255, 255, 255);
         text-align: center;
         padding: 80px 0;
         animation: fadeIn 1s ease-out;
@@ -125,7 +125,7 @@
       .contact-section,
       .product-detail-section {
         padding: 24px 0;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         margin-bottom: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -138,7 +138,7 @@
       .product-detail-section h2 {
         text-align: center;
         margin-bottom: 20px;
-        color: #007bff;
+        color: #0064bc;
       }
 
       .product-grid {
@@ -148,7 +148,7 @@
       }
 
       .product-card {
-        background-color: #fff;
+        background-color: #ffffff;
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
@@ -168,7 +168,7 @@
         display: block;
         margin: 0 auto;
         padding: 10px;
-        background: #f5f5f5;
+        background: #ffffff;
       }
 
       .product-card h3 {
@@ -261,7 +261,7 @@
       }
 
       .product-detail-info ul li {
-        background-color: #f9f9f9;
+        background-color: #ffffff;
         margin-bottom: 6px;
         padding: 8px 12px;
         border-left: 4px solid #007bff;
@@ -342,8 +342,8 @@
           <ul>
             <li><a href="#home">ទំព័រដើម</a></li>
             <li><a href="#products">ផលិតផល</a></li>
-            <li><a href="#home#about">អំពីយើង</a></li>
-            <li><a href="#home#contact">ទំនាក់ទំនង</a></li>
+            <li><a href="#about">អំពីយើង</a></li>
+            <li><a href="#contact">ទំនាក់ទំនង</a></li>
           </ul>
         </nav>
       </div>
@@ -884,6 +884,27 @@
           description:
             "The ASUS TUF Gaming F16 (2025) is a next-gen gaming laptop built for performance and durability. Powered by the Intel Core Ultra 9 275HX processor and GeForce RTX 5070 Laptop GPU, it features up to 32 GB DDR5-5600 memory and 2 TB PCIe Gen 4 SSD. The 16-inch 2.5K 165 Hz display with Adaptive-Sync delivers smooth, immersive visuals. Robust thermal solution includes 2nd-Gen Arc Flow Fans™, full-width heatsink, and MIL-STD-810H chassis. Comes with Wi-Fi 6E, Thunderbolt 4, RGB keyboard, 90Wh battery, and Windows 11 Pro.",
         },
+        {
+          id: 29,
+          name: "ASUS ProArt P16 H7606WP",
+          brand: "ASUS",
+          price: 2899, // Estimated starting price in USD
+          image: "proart.png",
+          category: "Creator Laptop",
+          specs: {
+            cpu: "AMD Ryzen AI 9 HX 370 (12-core, up to 5.1 GHz, 50 TOPS NPU)",
+            ram: "64GB LPDDR5X-7500 (onboard)",
+            storage: "2TB PCIe 4.0 NVMe SSD",
+            gpu: "NVIDIA GeForce RTX 5070 Laptop GPU 8GB GDDR7",
+            display:
+              "16-inch 3K (2880×1800) or optional 4K OLED touchscreen, 60 Hz",
+            os: "Windows 11 Pro",
+            warranty: "1 Year",
+            model: "H7606WP",
+          },
+          description:
+            "The ASUS ProArt P16 H7606WP (2025) is a high-end creator laptop designed for professional content creators. Equipped with an AMD Ryzen AI 9 HX 370 processor (with 50 TOPS NPU) and an NVIDIA RTX 5070 GPU, it offers outstanding AI-accelerated performance. The 16-inch 3K (or optional 4K) OLED touchscreen delivers superb color accuracy. With 64GB ultra-fast RAM, 2TB SSD storage, and robust Creator-focused features like StoryCube, MuseTree, and MIL-STD durability, it’s an ideal portable studio.",
+        },
       ];
 
       /* Utility functions */
@@ -937,8 +958,9 @@
           <section id="contact" class="contact-section">
             <div class="container">
               <h2>ទំនាក់ទំនង</h2>
-              <p>អាសយដ្ឋាន: ផ្ទះលេខ ៥៦, ផ្លូវ ១២០, រាជធានីភ្នំពេញ</p>
+              <p>អាសយដ្ឋាន: ផ្ទះលេខ ៥៦, ផ្លូវ ១២០, សង្កាត់ស្ទឹងមានជ័យ ខណ្ឌមានជ័យ​ រាជធានីភ្នំពេញ</p>
               <p>ទូរស័ព្ទ: 0972425545 , 0767160547</p>
+              <p>អ៊ីមែល : richhat@computer.rc
             </div>
           </section>
         `;
